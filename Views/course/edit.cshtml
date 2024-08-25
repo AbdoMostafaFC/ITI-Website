@@ -1,0 +1,33 @@
+﻿@model course
+@{
+    ViewData["Title"] = "edit";
+    SelectList selectitem = new SelectList(ViewBag.dept,"id","name");
+
+}
+<form class="form-check form-control-plaintext"  asp-action="saveedit" asp-controller="course" asp-route-id="@Model.id">
+    <div>
+        <label asp-for="name"></label>
+    <input  class="form-control" asp-for="name"  />
+    </div>
+    <div>
+        <label asp-for="degree"></label>
+        <input class="form-control" asp-for="degree" />
+    </div>
+    <div>
+        <label asp-for="min_degree"></label>
+        <input class="form-control" asp-for="min_degree" />
+    </div>
+    <div>
+        <label asp-for="dep_id"></label>
+        @* @* <input class="form-control" asp-for="dep_id" asp-items=""/> *@ 
+
+         <select asp-for="dep_id" class="form-control" asp-items="selectitem"></select>
+    </div>
+    <div>
+        
+        <input type="submit" class="btn btn-success" value="Save"/>
+    </div>
+
+
+</form>
+

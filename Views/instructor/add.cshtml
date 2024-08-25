@@ -1,0 +1,63 @@
+﻿@model instructor
+@{
+    ViewData["Title"] = "add";
+    SelectList lis = new SelectList(ViewBag.courselist, "id", "name");
+    SelectList list1 = new SelectList(ViewBag.dept, "id", "name");
+}
+
+<h1>add</h1>
+
+<form action="/instructor/saveadd" method="post" style="width:50%;margin-left:30% ;background-color:darkgray" >
+    
+    <label asp-for="name"></label>
+    <input class="form-control form-control-lg" asp-for="name" />
+
+    <br />
+
+    <label asp-for="image"></label>
+    <input class="form-control form-control-lg" asp-for="image" />
+
+    <br />
+    <label asp-for="address"></label>
+    <input class="form-control form-control-lg" asp-for="address" />
+    <br />
+    <label asp-for="salary"></label>
+    <input class="form-control form-control-lg" asp-for="salary" />
+    <br />
+    <label asp-for="course_id"></label>
+    <select id="c_id" class="form-control form-control-lg" asp-for="course_id" asp-items="lis">
+    <option value="0">select course</option>    
+    </select>
+    <br />
+    <label  asp-for="department_id"></label>
+    <select id="d_id" class="form-control form-control-lg" asp-for="department_id" onchange="select()" asp-items="list1">
+        <option value="0">select department</option>
+    </select>
+    <br />
+    <input  type="submit"  />
+
+
+
+</form>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+
+    function select() {
+                var departmentid = document.getElementById("d_id").value;
+              var c_list = document.getElementById("c_id");
+                console.log(departmentid);
+        $.ajax({
+            url: "/instructor/getallcourses/"+departmentid,
+            success: function (result) {
+               // $("#div1").html(result);
+                //console.log(result);
+                c_list.innerHTML = "";
+                for(let item of result){
+                  c_list.innerHTML += "<option value=" + item.id + ">" + item.name + "</option>";
+                }
+            }
+        });
+
+    }
+
+</script>

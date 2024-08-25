@@ -1,0 +1,34 @@
+﻿@using MainProgram.Models
+
+@model List<instructor>
+
+
+
+
+<h1 style="margin:auto">Show all instrutors</h1>
+
+    @* <div style="background-color:aquamarine ;display:flex; float:right grid-template-columns: repeat(3, 1fr);gap: 10px;"> *@
+
+   
+    
+        <div  style="display:flex;flex-direction:row"> 
+
+   
+
+    @foreach(var item in @Model )
+    {
+      
+
+               <partial name="_instructorspartial" model="item"></partial>
+         
+
+    }
+        
+  
+
+@* </div> *@
+
+
+
+
+        </div>

@@ -1,0 +1,31 @@
+﻿@model List<CrsResult>
+
+
+
+    <table class="table table-bordered table-hover">
+    @foreach(var item in Model)
+    {
+        if (item.degree < item.course.min_degree)
+        {
+
+
+            <tr style="color:red">
+
+        <td>@item.Trainee.name</td>
+        <td>@item.degree</td>
+        <td>@item.course.name</td>
+            </tr>
+        }
+        else
+        {
+
+            <tr style="color:green">
+
+                <td>@item.Trainee.name</td>
+                <td>@item.degree</td>
+                <td>@item.course.name</td>
+            </tr>
+        }
+
+    }
+</table>

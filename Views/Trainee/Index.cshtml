@@ -1,0 +1,30 @@
+﻿@model List<trainee>
+@{
+    ViewData["Title"] = "Index";
+}
+<div ></div>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Deptatment_ID</th>
+        <th>Update</th>
+
+
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr class="table-secondary">
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.level</td>
+            <td>@item.dept_id</td>
+            <td><a href="/trainee/edit/@item.id">Edit</a></td>
+
+        </tr>
+      
+    }
+    
+</table>

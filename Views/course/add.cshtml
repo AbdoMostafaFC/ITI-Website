@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "add";
+    SelectList lis = new SelectList(ViewBag.dept,"id","name");
+}
+@model course
+
+<h1 style="margin:auto">add new course</h1>
+<form class="form form-control" action="/course/SaveAdd" method="post" style="background-color:lightgray">
+    <label asp-for="name"></label>
+    <input class="form-check form-control" asp-for="name" />
+    <span asp-validation-for="name" class="text-danger"></span><br />
+
+    <label asp-for="degree"></label>
+    <input class="form-check form-control" asp-for="degree" />
+    <span asp-validation-for="degree" class="text-danger"></span><br />
+
+
+    <label asp-for="min_degree"></label>
+    <input class="form-check form-control" asp-for="min_degree" />
+    <span asp-validation-for="min_degree" class="text-danger"></span><br />
+
+
+    <label asp-for="houres"></label>
+    <input class="form-check form-control" asp-for="houres" />
+    <span asp-validation-for="houres" class="text-danger"></span><br />
+
+
+    <label asp-for="dep_id"></label>
+
+    <select class="form-control" asp-for="dep_id" asp-items="lis">
+        <option value="0"> selecte department</option>
+    </select>
+    <span asp-validation-for="dep_id" class="text-danger"></span>
+
+
+ 
+
+
+    <br />
+    <input style="text-align:center ;margin-left:50%" class="btn btn-success" type="submit"  />
+
+
+</form>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+

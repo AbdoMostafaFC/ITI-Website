@@ -1,0 +1,69 @@
+﻿@model List<Department>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+    SelectList listt = new SelectList(Model, "id", "name");
+
+}
+
+
+
+<table class="table table-borderd hover">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>manager</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.manager</td>
+            <td><a href="/department/edit/@item.id">Edit</a></td>
+        </tr>
+    }
+
+</table>
+<a asp-action="newdept" asp-controller="department">Add New Deparment</a>
+
+<br />
+<br />
+<label>Selecte department to show all courses</label>
+<select class="form-control" name="dept" id="dept" asp-items="listt" onchange="getcourses()"></select>
+
+<select class="form-control" name="course" id="cid"></select>
+
+
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+
+<script>
+    function getcourses() {
+        console.log(document.getElementById("dept"));
+        var id = document.getElementById("dept").value;
+
+        $.ajax({
+            url: "/department/showcousesindepartment?deptid=" + id, success: function (result) {
+
+                document.getElementById("cid").innerHTML = "";
+                console.log(result)
+                for (let course of result) {
+
+                    document.getElementById("cid").innerHTML += "<option value='" + course.id + "'>"course.name"</option>";
+                }
+
+            }
+        });
+
+    }
+
+
+</script>
+
+
+
+
+
+

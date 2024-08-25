@@ -1,0 +1,35 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "edit";
+}
+
+<h1>edit</h1>
+<br />
+<form action="/department/saveedit/@Model.id" method="post">
+    
+   @*  <div>
+        <label>name</label>
+            <input type="text" class="form-control" name="@Model.name" value="@Model.name" />
+    </div> *@
+    <lable> dept name</lable>
+    @Html.TextBox("name",Model.name,new{@class="form-control",style="width=100px;hight=30px"})
+   @*  <div>
+        <label>manager</label>
+       <input type="text" class="form-control" name="@Model.manager" value="@Model.manager" />
+    </div> *@
+    <lable>manager name</lable>
+    @Html.TextBoxFor(m => m.manager, new { @class = "form-control" })
+    <div>
+      
+        <input type="submit" class="btn btn-success"  value="update" />
+     </div>
+
+
+
+
+
+
+
+</form>
+
+

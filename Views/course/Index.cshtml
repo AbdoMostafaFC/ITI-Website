@@ -1,0 +1,43 @@
+﻿@model List<course>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+    
+}
+
+<button class="btn btn-secondary"> <a href="/course/add" style="text-decoration:none;font-size:20px;color:white;margin-top:20px"> adda new course</a> </button>
+
+<table class="table table-borderd table-hover"style="margin-top:10px">
+    <tr>
+        <th >Id</th>
+        <th >name</th>
+
+        <th>degree</th>
+        <th>min-degree</th>
+        <th>dept-Id</th>
+        <th>update</th>
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr class="table-info">
+            <td >@item.id</td>
+            <td>@item.name</td>
+
+            <td>@item.degree</td>
+            <td>@item.min_degree</td>
+            <td>@item.dep_id</td>
+            <td><a asp-action="edit" asp-controller="course" asp-route-id="@item.id">edit</a></td> 
+
+        </tr>
+    }
+
+
+
+
+</table>
+
+
+
+

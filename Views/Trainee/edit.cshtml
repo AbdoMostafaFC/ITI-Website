@@ -1,0 +1,38 @@
+﻿@model trainee
+<form method="post"  asp-action="saveedit" asp-controller="trainee" asp-route-id="@Model.id">
+    <div>
+       @*  <input  input="text" name="name" value="@Model.name"/> *@
+        <label asp-for="name"></label>
+       <input  class="form-control" asp-for="name"/>
+       
+    </div>
+@*     <lable>Trainee Name</lable>
+    @Html.TextBoxFor(t=>t.name,new {@class="form-control"}) *@
+    <div>
+        <lable>Address</lable>
+        <input  input="text" name="address" value="@Model.address"/>
+
+    </div>
+    @* <lable>Address</lable>
+    @Html.TextBoxFor(t=>t.address,new{@class="form-control"}) *@
+    <div>
+        <lable>level</lable>
+        <input  input="text" name="level" value="@Model.level"/>
+
+    </div>
+    @*  <lable>Level</lable>
+    @Html.TextBoxFor(t=>t.level,new{@class="form-control"}) *@
+    <div>
+        <lable>Department_id</lable>
+        <input  input="text" name="dept_id" value="@Model.dept_id"/>
+       
+        
+    </div
+@*     <lable>Department_id</lable>
+    @Html.TextBoxFor(t=>t.dept_id,new{@class="form-control"}) *@
+    <br />
+    <input type="submit" value="update" class="btn btn-success" />
+
+</form>
+
+

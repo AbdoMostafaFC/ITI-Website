@@ -1,0 +1,35 @@
+﻿@model instructor
+@{
+    ViewData["Title"] = "search";
+}
+
+<h1>Data About Instructor</h1>
+
+
+        <div>
+            <label asp-for="image"></label>
+            <img src="/images/@Model.image" style="width:100px;height:100px;-moz-border-radius:10px" />
+        </div>
+    <div>
+        <label asp-for="name" ></label>
+        <input class="form form-control" type="text" name="name"  value="@Model.name" />
+    </div>
+
+    <div>
+        <label asp-for="address"></label>
+        <input class="form-check form-control" type="text" name="name" value="@Model.address" />
+    </div>
+    <div>
+        <label asp-for="address"></label>
+        <input class="form-check form-control" type="text" name="name" value="@Model.address" />
+    </div>
+    <div>
+        <label asp-for="salary"></label>
+    <input class="form form-control" type="text" name="name" value="@Model.salary" />
+    </div>
+   
+
+
+
+
+

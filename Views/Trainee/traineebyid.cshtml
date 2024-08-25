@@ -1,0 +1,26 @@
+﻿@* @* @using MainProgram.viewModels;
+@model trainee_course_result
+<h3>@Model.name</h3>
+<table>
+
+	@foreach(var item in Model.degree)
+	{
+
+       <tr>
+		   <td>@item</td>
+		  
+	   </tr>
+
+	}
+	@foreach (var item in Model.couse_name)
+	{
+
+		   <tr>
+			   <td>@item</td>
+
+		   </tr>
+
+	}
+
+
+</table> *@

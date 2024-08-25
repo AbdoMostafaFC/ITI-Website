@@ -1,0 +1,75 @@
+﻿@{
+
+	Layout = "_Layout";
+}
+@using MainProgram.Models;
+
+@model List<instructor>
+<div style="border:3px solid blue" id="insrtuctorDetals">
+
+</div>
+<h1 style="margin:auto">All Instructors</h1>
+<table class="table table-bordered table-hover">
+	<tr class="table-secondary">
+			<th>id</th>
+			<th>name</th>
+			<th>address</th>
+			<th>image</th>
+		    <th>salary</th>
+		   <th>Apdate</th>
+
+
+
+	</tr>
+
+	@foreach (instructor item in Model)
+		{
+			<tr>
+						<td>@item.id</td>
+			           <td><a href="#" onclick="get(@item.id)" > @item.name  </a></td>
+						<td>@item.address</td>
+						<td><img src="/images/@item.image" width=50px hight=50px /></td>
+			             <td>@item.salary</td>
+						<td><a href="/instructor/edit/@item.id">update</a></td>
+						<td><a href="/instructor/delete/@item.id">delete</a></td>
+
+
+
+			</tr>
+			
+		}
+
+
+</table>
+
+<form asp-action="search" asp-controller="instructor" method="post">
+	<label>Serche By name</label>
+	<input class="form form-control" type="text" name="name" value="" />
+	<input type="submit" class="btn btn-primary"  value="Search" />
+</form>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script>
+	
+	function get(id)
+	{
+		// console.log(id 
+		event.preventDefault();
+		
+			$.ajax({
+			url: "/department/detals/" + id, success: function (result) {
+					// $("#div1").html(result);
+					console.log(result)
+					// document.getElementById("insrtuctorDetals").innerHTML = result;
+				}
+			});
+	
+
+	}
+
+
+
+</script>
+
+<button class="btn btn-success" style="margin-left:20%"> <a style="text-decoration:none ;color:white;font-size:20px" href="/instructor/add">Add new instructor</a></button>
+
+
